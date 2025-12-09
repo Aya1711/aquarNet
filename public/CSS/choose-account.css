@@ -1,0 +1,408 @@
+/* ========== ROOT VARIABLES ========== */
+:root {
+    --orange: #FF6B35;
+    --light-orange: #FF8C5A;
+    --dark-orange: #E55A2B;
+    --gray: #6C757D;
+    --dark-gray: #495057;
+    --light-gray: #E9ECEF;
+    --beige: #F8F9FA;
+    --dark-beige: #E8E8E0;
+    --white: #FFFFFF;
+}
+
+/* ========== MAIN CONTAINER ========== */
+.account-selection-page {
+    background: 
+        linear-gradient(135deg, var(--beige) 0%, var(--white) 100%),
+        radial-gradient(circle at 25% 25%, var(--orange) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, var(--orange) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
+    background-position: 0 0, 0 0, 25px 25px;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    direction: rtl;
+    position: relative;
+}
+
+/* ========== HEADER SECTION ========== */
+.text-center.mb-12 {
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    position: relative;
+}
+
+.main-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    border-radius: 2px;
+}
+
+.main-subtitle {
+    font-size: 1.25rem;
+    color: var(--gray);
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
+
+/* ========== ACCOUNT CARDS CONTAINER ========== */
+.account-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+
+@media (min-width: 768px) {
+    .account-cards-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+/* ========== ACCOUNT CARD ========== */
+.account-card {
+    background: var(--white);
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.account-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(255, 107, 53, 0.15);
+    border-color: var(--orange);
+}
+
+.account-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.account-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-content {
+    padding: 2.5rem;
+}
+
+/* ========== CARD HEADER ========== */
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.user-icon {
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    color: var(--white);
+}
+
+.agency-icon {
+    background: linear-gradient(135deg, var(--gray), var(--dark-gray));
+    color: var(--white);
+}
+
+.icon-circle i {
+    font-size: 2rem;
+    transition: all 0.4s ease;
+}
+
+.account-card:hover .icon-circle {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.account-card:hover .icon-circle i {
+    transform: rotate(5deg);
+}
+
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.account-card:hover .card-title {
+    color: var(--orange);
+}
+
+.card-subtitle {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* ========== FEATURES LIST ========== */
+.features-list {
+    margin-bottom: 2.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    background: var(--beige);
+}
+
+.feature-item:hover {
+    background: rgba(255, 107, 53, 0.05);
+    transform: translateX(-5px);
+}
+
+.feature-check {
+    color: var(--orange);
+    margin-left: 1rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    color: var(--dark-gray);
+    line-height: 1.5;
+    flex: 1;
+    font-weight: 500;
+}
+
+/* ========== BUTTONS ========== */
+.account-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.account-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: right 0.6s ease;
+}
+
+.account-btn:hover::before {
+    right: 100%;
+}
+
+.user-btn {
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.user-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    background: linear-gradient(135deg, var(--light-orange), var(--orange));
+    color: var(--white);
+}
+
+.agency-btn {
+    background: linear-gradient(135deg, var(--gray), var(--dark-gray));
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+.agency-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+    background: linear-gradient(135deg, var(--dark-gray), var(--gray));
+    color: var(--white);
+}
+
+/* ========== INFO SECTION ========== */
+.info-section {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), rgba(108, 117, 125, 0.05));
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 107, 53, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+}
+
+.info-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+.info-text {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* ========== STATS CONTAINER ========== */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 640px) {
+    .stats-container {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.stat-icon {
+    color: var(--orange);
+    font-size: 1.5rem;
+}
+
+.stat-text {
+    color: var(--dark-gray);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* ========== ANIMATIONS ========== */
+.account-card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.account-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .account-selection-page {
+        padding: 2rem 1rem;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .main-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .card-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .info-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .info-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.75rem;
+    }
+    
+    .card-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .icon-circle i {
+        font-size: 1.75rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .account-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}

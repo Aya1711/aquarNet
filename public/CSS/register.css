@@ -1,0 +1,408 @@
+/* public/css/register.css - تصميم صفحة التسجيل */
+:root {
+    --orange: #FF6B35;
+    --light-orange: #FF8C5A;
+    --dark-orange: #E55A2B;
+    --gray: #6C757D;
+    --dark-gray: #495057;
+    --light-gray: #E9ECEF;
+    --beige: #F8F9FA;
+    --dark-beige: #E8E8E0;
+    --white: #FFFFFF;
+}
+
+/* ========== BASE STYLES ========== */
+.register-page {
+    background: var(--beige);
+    min-height: 100vh;
+    padding: 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ========== CARD DESIGN ========== */
+.register-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--light-gray);
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.register-header {
+    background: linear-gradient(135deg, var(--orange), var(--light-orange));
+    padding: 40px 32px;
+    text-align: center;
+    color: white;
+}
+
+.register-logo {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.register-logo i {
+    font-size: 20px;
+}
+
+.register-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.register-subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* ========== FORM STYLES ========== */
+.register-body {
+    padding: 32px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title i {
+    color: var(--orange);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 6px;
+}
+
+.required {
+    color: var(--dark-orange);
+}
+
+.form-input-group {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+    transition: all 0.2s;
+}
+
+.form-input-group:focus-within {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.input-icon {
+    padding: 12px 16px;
+    background: var(--beige);
+    border: none;
+    color: var(--gray);
+    font-size: 14px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-input {
+    border: none;
+    padding: 12px 16px;
+    font-size: 14px;
+    background: transparent;
+    color: var(--dark-gray);
+    width: 100%;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: var(--gray);
+}
+
+.toggle-password {
+    background: transparent;
+    border: none;
+    padding: 12px 16px;
+    color: var(--gray);
+    cursor: pointer;
+    transition: color 0.2s;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password:hover {
+    color: var(--orange);
+}
+
+/* ========== PASSWORD STRENGTH ========== */
+.password-strength {
+    margin-top: 8px;
+}
+
+.strength-bar {
+    height: 4px;
+    background: var(--light-gray);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.strength-progress {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.strength-text {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ========== CHECKBOX ========== */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--beige);
+    border-radius: 8px;
+    border: 1px solid var(--light-gray);
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--gray);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 2px;
+    transition: all 0.2s;
+}
+
+.checkbox:checked {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.checkbox-label {
+    font-size: 14px;
+    color: var(--dark-gray);
+    line-height: 1.5;
+    cursor: pointer;
+    flex: 1;
+}
+
+.checkbox-label a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.checkbox-label a:hover {
+    text-decoration: underline;
+}
+
+/* ========== BUTTONS ========== */
+.register-btn {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.register-btn:hover {
+    background: var(--dark-orange);
+    transform: translateY(-1px);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+.login-link-btn {
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    color: var(--orange);
+    border: 2px solid var(--orange);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.login-link-btn:hover {
+    background: var(--orange);
+    color: white;
+}
+
+/* ========== AGENCY CARD ========== */
+.agency-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid var(--gray);
+    padding: 24px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.agency-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.agency-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--gray);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    color: white;
+}
+
+.agency-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: 8px;
+}
+
+.agency-description {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.agency-btn {
+    padding: 10px 20px;
+    background: var(--gray);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.agency-btn:hover {
+    background: var(--dark-gray);
+    color: white;
+    text-decoration: none;
+}
+
+/* ========== ALERTS ========== */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: 1px solid;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.alert-error {
+    background: rgba(255, 107, 53, 0.05);
+    color: var(--dark-orange);
+    border-color: rgba(255, 107, 53, 0.2);
+}
+
+.alert-success {
+    background: rgba(108, 117, 125, 0.05);
+    color: var(--gray);
+    border-color: rgba(108, 117, 125, 0.2);
+}
+
+.alert i {
+    margin-top: 1px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .register-page {
+        padding: 16px;
+    }
+    
+    .register-header {
+        padding: 32px 24px;
+    }
+    
+    .register-body {
+        padding: 24px;
+    }
+    
+    .section-title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .register-header {
+        padding: 24px 20px;
+    }
+    
+    .register-body {
+        padding: 20px;
+    }
+    
+    .register-title {
+        font-size: 20px;
+    }
+    
+    .register-btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
