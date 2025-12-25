@@ -121,8 +121,8 @@
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card property-card h-100">
                         @if($property->images->count() > 0)
-                        <img src="{{ asset('storage/' . $property->images->first()->url_image) }}" 
-                             class="card-img-top" alt="{{ $property->titre }}" 
+                        <img src="{{ asset('storage/' . $property->images->first()->url_image) }}"
+                             class="card-img-top" alt="{{ $property->titre }}"
                              style="height: 200px; object-fit: cover;">
                         @else
                         <img src="{{ asset('images/default-property.jpg') }}"

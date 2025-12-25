@@ -38,9 +38,9 @@
                         <div class="carousel-inner">
                             @foreach($property->images as $key => $image)
                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                <img src="{{ asset('storage/' . $image->url_image) }}" 
-                                     class="d-block w-100" 
-                                     style="height: 400px; object-fit: cover;" 
+                                <img src="{{ asset('storage/' . $image->url_image) }}"
+                                     class="d-block w-100"
+                                     style="height: 400px; object-fit: cover;"
                                      alt="{{ $property->titre }}">
                             </div>
                             @endforeach
@@ -67,8 +67,8 @@
             <div class="row g-2 mb-4">
                 @foreach($property->images as $image)
                 <div class="col-3">
-                    <img src="{{ asset('storage/' . $image->url_image) }}" 
-                         class="img-thumbnail w-100" 
+                    <img src="{{ asset('storage/' . $image->url_image) }}"
+                         class="img-thumbnail w-100"
                          style="height: 80px; object-fit: cover; cursor: pointer;"
                          onclick="showImage('{{ asset('storage/' . $image->url_image) }}')">
                 </div>

@@ -225,11 +225,11 @@ class ImageController extends Controller
     {
         $originalName = $image->getClientOriginalName();
         $extension = $image->getClientOriginalExtension();
-        
+
         // إنشاء اسم فريد للصورة
         $imageName = 'bien_' . $bienId . '_' . time() . '_' . uniqid() . '.' . $extension;
         $directory = 'properties/' . $bienId;
-        
+
         // إنشاء الدليل إذا لم يكن موجوداً
         if (!Storage::disk('public')->exists($directory)) {
             Storage::disk('public')->makeDirectory($directory);

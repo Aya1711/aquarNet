@@ -15,7 +15,7 @@
     <link href="{{ asset('css/choose-account.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">  
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/register-agency.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/register-agency.css') }}" rel="stylesheet"> -->
 
 
 
@@ -34,5 +34,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     @yield('scripts')
+    @yield('style')
 </body>
 </html>

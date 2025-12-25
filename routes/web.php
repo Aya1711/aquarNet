@@ -12,8 +12,7 @@ use App\Http\Controllers\{
     ImageController,
     Auth\ChooseAccountController,
     MessageController,
-    LocaleController,
-    PaymentController
+    LocaleController
 };
 
 // ========================
@@ -72,12 +71,7 @@ Route::get('/agencies/{id}', [AgencyController::class, 'show'])->name('agencies.
 // ========================
 Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
 
-// ========================
-// المدفوعات (للتطوير - بدون مصادقة)
-// ========================
-Route::prefix('payment')->group(function () {
-    Route::match(['get', 'post'], '/success/{paymentId}', [PaymentController::class, 'simulateSuccess'])->name('payment.success');
-});
+
 
 // ========================
 // مسارات تتطلب تسجيل الدخول
@@ -126,17 +120,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/property/{id}/contact', [PropertyController::class, 'contact'])->name('properties.contact');
     Route::post('/property/{id}/favorite', [PropertyController::class, 'toggleFavorite'])->name('properties.favorite');
 
-    // ------------------------
-    // المدفوعات
-    // ------------------------
-    Route::prefix('payment')->group(function () {
-        Route::get('/packages/{bienId}', [PaymentController::class, 'showPublicationPackages'])->name('payment.packages');
-        Route::post('/create/{bienId}', [PaymentController::class, 'createPayment'])->name('payment.create');
-        Route::get('/process/{paymentId}', [PaymentController::class, 'processPayment'])->name('payment.process');
-        Route::match(['get', 'post'], '/success/{paymentId}', [PaymentController::class, 'simulateSuccess'])->name('payment.success');
-        Route::get('/failure/{paymentId}', [PaymentController::class, 'simulateFailure'])->name('payment.failure');
-        Route::get('/history', [PaymentController::class, 'paymentHistory'])->name('payment.history');
-    });
+
 
     // ------------------------
     // لوحة تحكم الوكالات

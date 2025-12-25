@@ -88,12 +88,7 @@ class PropertyController extends Controller
         if ($property->statut === 'disponible' || $property->statut === 'approuve') {
             // العقار متاح للعرض العام
         } elseif (Auth::check() && $property->user_id === Auth::id()) {
-            // المالك يحاول عرض عقاره الخاص
-            if (!$property->isPaid()) {
-                // العقار غير مدفوع، إعادة توجيه إلى الدفع
-                return redirect()->route('payment.packages', $property->id_bien)
-                    ->with('warning', 'يجب دفع رسوم النشر قبل عرض العقار.');
-            }
+            // المالك يحاول عرض عقاره الخاص - الآن متاح بدون دفع
         } else {
             // العقار غير متاح للعرض
             abort(404, 'العقار غير متاح حالياً.');
@@ -189,9 +184,9 @@ class PropertyController extends Controller
             return redirect()->route('properties.show', $bien->id_bien)
                 ->with('success', $message);
         } else {
-            // إعادة توجيه المستخدمين والوكالات إلى صفحة اختيار باقات الدفع
-            return redirect()->route('payment.packages', $bien->id_bien)
-                ->with('success', 'تم إضافة العقار بنجاح. يرجى اختيار باقة النشر وإتمام عملية الدفع.');
+            // إعادة توجيه المستخدمين والوكالات إلى صفحة العقار مباشرة (بدون دفع)
+            return redirect()->route('properties.show', $bien->id_bien)
+                ->with('success', 'تم إضافة العقار بنجاح. العقار في انتظار الموافقة من الإدارة.');
         }
 
           //return redirect()->route('properties.show', $bien->id_bien);

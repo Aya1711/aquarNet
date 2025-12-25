@@ -68,11 +68,7 @@ class Bien extends Model
         return $this->hasMany(Favori::class, 'bien_id', 'id_bien');
     }
 
-    // العلاقة مع المدفوعات
-    public function payments()
-    {
-        return $this->hasMany(Payment::class, 'bien_id', 'id_bien');
-    }
+
 
     // نطاقات للبحث
     public function scopeSearch($query, $search)
